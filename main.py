@@ -4,11 +4,11 @@ from clear_terminal import clear_terminal
 
 
 def print_menu():
-    print("Please choose an option from the following using the corresponding number")
-    print("1. Deposit")
-    print("2. Withdraw")
-    print("3. Show Balance")
-    print("4. Exit")
+    print("Please choose an option from the following")
+    print("(1) Deposit")
+    print("(2) Withdraw")
+    print("(3) Show Balance")
+    print("(4) Exit")
 
 
 def deposit(cardholder):
@@ -40,8 +40,8 @@ if __name__ == "__main__":
 
     while True:
         print("Are you a:")
-        print("1. Existing user")
-        print("2. New user")
+        print("(1) Existing user")
+        print("(2) New user")
         user_choice = input("")
 
         if user_choice == "1":
