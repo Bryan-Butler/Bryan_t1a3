@@ -1,5 +1,6 @@
 import json
 from cardinfo import card_info
+from clear_terminal import clear_terminal
 
 
 def print_menu():
