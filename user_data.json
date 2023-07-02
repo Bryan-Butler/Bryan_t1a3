@@ -1,0 +1,51 @@
+[
+    {
+        "card_number": "1234567891011121",
+        "pin": 1234,
+        "first_name": "Bryan",
+        "last_name": "Butler",
+        "balance": 345.45
+    },
+    {
+        "card_number": "1110987654321012",
+        "pin": 7464,
+        "first_name": "Akash",
+        "last_name": "Devs",
+        "balance": 5000000.18
+    },
+    {
+        "card_number": "2750100607935726",
+        "pin": 4016,
+        "first_name": "George",
+        "last_name": "GPT",
+        "balance": 123.34
+    },
+    {
+        "card_number": "3562633706497769",
+        "pin": 4001,
+        "first_name": "Matthew",
+        "last_name": "Heisenburg",
+        "balance": 1200.0
+    },
+    {
+        "card_number": "6971112776158992",
+        "pin": 3456,
+        "first_name": "Allan",
+        "last_name": "Turing",
+        "balance": 558.63
+    },
+    {
+        "card_number": "9876543210987654",
+        "pin": 7890,
+        "first_name": "John",
+        "last_name": "Doe",
+        "balance": 100.0
+    },
+    {
+        "card_number": "5432109876543210",
+        "pin": 9876,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "balance": 200.0
+    }
+]
