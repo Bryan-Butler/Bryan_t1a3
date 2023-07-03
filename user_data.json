@@ -4,7 +4,13 @@
         "pin": 1234,
         "first_name": "bryan",
         "last_name": "butler",
-        "balance": 345.45
+        "balance": 345.45,
+        "transactions": [
+            {
+                "type": "withdrawal",
+                "amount": 100.0
+            }
+        ]
     },
     {
         "card_number": "1110987654321012",

@@ -1,10 +1,11 @@
-class card_info():
-    def __init__(self, cardnumber, cardpin, firstname, lastname, balance):
+class card_info:
+    def __init__(self, cardnumber, pin, firstname, lastname, balance):
         self.cardnumber = cardnumber
-        self.pin = cardpin
+        self.pin = pin
         self.firstname = firstname
         self.lastname = lastname
         self.balance = balance
+        self.transactions = []
 
     
     ##getting the info.
@@ -37,3 +38,10 @@ class card_info():
         print("First name: ", self.firstname)
         print("Last name: ", self.lastname)
         print("Balance: ", self.balance)
+
+    def view_transactions(cardholder):
+        print("Transaction History:")
+        for transaction in cardholder.transactions:
+            print("Type:", transaction["type"])
+            print("Amount:", "{:.2f}".format(transaction["amount"]))
+            print()  # Print a blank line between transactions
