@@ -1,8 +1,9 @@
 import json
+import os.path
 from cardinfo import card_info
 from clear_terminal import clearterminal
 
-
+#logged in menu
 def print_menu():
     print("Please choose an option from the following")
     print("(1) Deposit")
@@ -10,20 +11,25 @@ def print_menu():
     print("(3) Show Balance")
     print("(4) View Transaction History")
     print("(5) Close Account")
-    print("(6) Exit")
+    print("(6) Calculate interest")
+    print("(7) Exit")
 
 
 ##saves the users transactions to the users account
 def save_transactions(cardholder):
-    with open("user_data.json", "r+") as file:
-        user_data = json.load(file)
-        for user in user_data:
-            if user["card_number"] == cardholder.get_cardnumber():
-                user["transactions"] = cardholder.transactions
-                file.seek(0)
-                file.truncate()
-                file.write(json.dumps(user_data))
-                break
+    filename = "user_data.json"
+    if os.path.exists(filename):
+        with open(filename, "r+") as file:
+            user_data = json.load(file)
+            for user in user_data:
+                if user["card_number"] == cardholder.get_cardnumber():
+                    if "transactions" not in user:
+                        user["transactions"] = []
+                    user["transactions"].extend(cardholder.transactions)
+                    file.seek(0)
+                    file.truncate()
+                    file.write(json.dumps(user_data))
+                    break
 
 #deposit to the users currently selected account
 def deposit(cardholder):
@@ -34,6 +40,7 @@ def deposit(cardholder):
             "type": "deposit",
             "amount": deposit_amount
         })
+        clearterminal.clear_terminal()
         print("Your updated balance is:", "{:.2f}".format(cardholder.get_balance()))
         save_transactions(cardholder)  
     except:
@@ -72,6 +79,17 @@ def view_transactions(cardholder):
             print("Type:", transaction["type"])
             print("Amount:", "{:.2f}".format(transaction["amount"]))
             print()
+
+#calculating interest
+def calculate_interest(principal, interest_rate, time_period):
+    interest_rate_decimal = interest_rate / 100
+    amount = principal * (1 + interest_rate_decimal) ** time_period
+    interest = amount - principal
+    print(f"For an interest rate of {interest_rate}% over {time_period} years:")
+    print(f"Principal Amount: {principal}")
+    print(f"Interest Earned: {interest:.2f}")
+    print(f"Total Amount: {amount:.2f}")
+    print()
 
 
 #delete selected users account

@@ -1,11 +1,10 @@
 import json
 from cardinfo import card_info
 from clear_terminal import clearterminal
-from bank_functions import (print_menu, save_transactions, deposit, withdraw, check_balance, view_transactions, close_account)
+from bank_functions import (print_menu, deposit, withdraw, check_balance, view_transactions,calculate_interest, close_account)
 
 if __name__ == "__main__":
     clearterminal.clear_terminal()
-
     current_user = card_info("", "", "", "", "")
 
     while True:
@@ -40,12 +39,16 @@ if __name__ == "__main__":
                 if len(user_matches) > 0:
                     current_user_data = user_matches[0]
                     current_user = card_info(current_user_data["card_number"],
-                                             current_user_data["pin"],
-                                             current_user_data["first_name"],
-                                             current_user_data["last_name"],
-                                             current_user_data["balance"])
+                                            current_user_data["pin"],
+                                            current_user_data["first_name"],
+                                            current_user_data["last_name"],
+                                            current_user_data["balance"])
+                    
+                    # Load transaction history from JSON file
+                    if "transactions" in current_user_data:
+                        current_user.transactions = current_user_data["transactions"]
+                    
                     break
-                
                 else:
                     print("No matching user found. Please try again.")
 
@@ -54,7 +57,6 @@ if __name__ == "__main__":
 
             while True:
                 clearterminal.clear_terminal()
-
                 user_pin = int(input("Please enter your security pin:\n").strip())
                 if current_user.get_cardpin() == user_pin:
                     break
@@ -96,45 +98,66 @@ if __name__ == "__main__":
                 # Save the updated user data to the JSON file
                 with open("user_data.json", "w") as file:
                     json.dump(user_data, file, indent=4)
-
-
                 break
 
         clearterminal.clear_terminal()
-
         print("Welcome", current_user.get_firstname())
+        
 
         while True:
-            print_menu()
-            try:
-                option = int(input())
-            except:
-                print("Invalid input, please try again")
+            for i in range(1, 8):
+                clearterminal.clear_terminal()
+                print_menu()
+                option = input()
+                try:
+                    option = int(option)
+                    if option == 1:
+                        clearterminal.clear_terminal()
+                        deposit(current_user)
+                        input("Press Enter to continue...")
+                    elif option == 2:
+                        while True:
+                            clearterminal.clear_terminal()
+                            withdraw(current_user)
+                            input("Press Enter to continue...")
+                            break
+                    elif option == 3:
+                        while True:
+                            clearterminal.clear_terminal()
+                            check_balance(current_user)
+                            input("Press Enter to continue...")
+                            break
+                    elif option == 4:
+                        while True:
+                            clearterminal.clear_terminal()
+                            view_transactions(current_user)
+                            input("Press Enter to continue...")
+                            break
+                    elif option == 5:
+                        clearterminal.clear_terminal()
+                        close_account(current_user)
+                    elif option == 6:
+                        clearterminal.clear_terminal()
+                        principal = float(input("Enter the principal amount: "))
+                        interest_rate_percent = float(input("Enter the interest rate (in percentage): "))
+                        interest_rate = interest_rate_percent 
+                        time_period = int(input("Enter the time period (in years): "))
+                        calculate_interest(principal, interest_rate, time_period)
+                        input("Press Enter to continue...")
+                    elif option == 7:
+                        clearterminal.clear_terminal()
+                        break
+                    else:
+                        raise ValueError()
+                except ValueError:
+                    clearterminal.clear_terminal()
+                    print("Invalid input, please try again")
+                    input("Press Enter to continue...")
+                    continue
 
-            if option == 1:
-                clearterminal.clear_terminal()
-                deposit(current_user)
-            elif option == 2:
-                clearterminal.clear_terminal()
-                withdraw(current_user)
-            elif option == 3:
-                clearterminal.clear_terminal()
-                check_balance(current_user)
-            elif option == 4:
-                clearterminal.clear_terminal()
-                view_transactions(current_user)
-            elif option == 5:
-                clearterminal.clear_terminal()
-                close_account(current_user)
+            if option == 7:
                 break
-            elif option == 6:
-                break
-            else:
-                option = 0
 
-        if option == 6:
-            clearterminal.clear_terminal()
+            print("Thank you for using our services!")
+            print("Have a great day!")
             break
-
-    print("Thank you for using our services!")
-    print("Have a great day!")
