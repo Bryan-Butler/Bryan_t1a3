@@ -3,28 +3,6 @@ import os.path
 from cardinfo import card_info
 from clear_terminal import clearterminal
 
-#logged in menu
-def print_menu():
-    print("Please choose an option from the following")
-    print("(1) Deposit")
-    print("(2) Withdraw")
-    print("(3) Show Balance")
-    print("(4) View Transaction History")
-    print("(5) Calculate interest")
-    print("(6) Close Account")
-    print("(7) Exit")
-
-#user type menu
-def user_selection_menu():
-    print("Are you a:")
-    print("(1) Existing user")
-    print("(2) New user")
-
-
-#enter to continue
-def enter_continue():
-    input("Press Enter to continue...")
-
 
 ##saves the users transactions to the users account
 def save_transactions(cardholder):

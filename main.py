@@ -2,8 +2,8 @@ import json
 import random
 from cardinfo import card_info
 from clear_terminal import clearterminal
-from bank_functions import (deposit, withdraw, check_balance,print_menu, user_selection_menu,enter_continue,
-                            view_transactions, calculate_interest, close_account)
+from simple_menus import (print_menu, user_selection_menu,enter_continue,return_user_select,invalid_choice,security_pin,invalid_pin_input,invalid_input,no_matching_user,pin_not_match,enter_details)
+from bank_functions import (deposit, withdraw, check_balance,view_transactions, calculate_interest, close_account)
 
 
 if __name__ == "__main__":
@@ -16,19 +16,18 @@ if __name__ == "__main__":
         clearterminal.clear_terminal()
 
         while user_choice not in ["1", "2"]:
-            print("Invalid choice. Please select again.")
+            invalid_choice
             user_selection_menu()
             user_choice = input("")
             clearterminal.clear_terminal()
 
         if user_choice == "1":
             while True:
-                search_input = input(
-                    "Please enter your card number or your name, or type 'return' to go back:\n").lower()
+                search_input = enter_details
                 clearterminal.clear_terminal()
 
                 if search_input == "return":
-                    print("Returning to user selection.")
+                    return_user_select
                     break
 
                 with open("user_data.json", "r") as file:
@@ -52,7 +51,7 @@ if __name__ == "__main__":
 
                     break
                 else:
-                    print("No matching user found. Please try again.")
+                    no_matching_user
                     enter_continue()
                     clearterminal.clear_terminal()
 
@@ -60,20 +59,34 @@ if __name__ == "__main__":
                 continue
 
             while True:
-                user_pin = input("Please enter your security pin:\n").strip()
+                user_pin = security_pin
                 clearterminal.clear_terminal()
 
-                if not user_pin.isdigit():
-                    print("Error: Invalid input. Please enter only digits for the pin.")
-                    enter_continue()
+                while True:
+                    user_pin = input("Please enter your security pin:\n")
                     clearterminal.clear_terminal()
-                    continue
+
+                    if not user_pin.isdigit():
+                        invalid_pin_input()
+                        enter_continue()
+                        clearterminal.clear_terminal()
+                        continue
+
+                    user_pin = int(user_pin)
+                    if current_user.get_cardpin() == user_pin:
+                        break
+                    else:
+                        pin_not_match()
+                        enter_continue()
+                        clearterminal.clear_terminal()
+
+
 
                 user_pin = int(user_pin)
                 if current_user.get_cardpin() == user_pin:
                     break
                 else:
-                    print("Invalid pin, please try again.")
+                    pin_not_match
                     enter_continue()
                     clearterminal.clear_terminal()
         elif user_choice == "2":
@@ -90,15 +103,15 @@ if __name__ == "__main__":
                 print("Generated card number:", card_number)
 
                 if card_number == "return":
-                    print("Returning to user selection.")
+                    return_user_select
                     break
 
                 while True:
-                    pin = input("Please enter your security pin:\n")
+                    pin = security_pin
                     clearterminal.clear_terminal()
 
                     if not pin.isdigit():
-                        print("Error: Invalid input. Please enter only digits for the pin.")
+                        invalid_pin_input
                         enter_continue()
                         clearterminal.clear_terminal()
                         continue
@@ -184,7 +197,7 @@ if __name__ == "__main__":
                     else:
                         raise ValueError()
                 except ValueError:
-                    print("Invalid input, please try again")
+                    invalid_input
                     enter_continue()
                     clearterminal.clear_terminal()
                     continue
