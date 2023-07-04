@@ -2,25 +2,22 @@ import json
 import random
 from cardinfo import card_info
 from clear_terminal import clearterminal
-from bank_functions import (print_menu, deposit, withdraw, check_balance,
+from bank_functions import (deposit, withdraw, check_balance,print_menu, user_selection_menu,enter_continue,
                             view_transactions, calculate_interest, close_account)
+
 
 if __name__ == "__main__":
     clearterminal.clear_terminal()
     current_user = card_info("", "", "", "", "")
 
     while True:
-        print("Are you a:")
-        print("(1) Existing user")
-        print("(2) New user")
+        user_selection_menu()
         user_choice = input("")
         clearterminal.clear_terminal()
 
         while user_choice not in ["1", "2"]:
             print("Invalid choice. Please select again.")
-            print("Are you a:")
-            print("(1) Existing user")
-            print("(2) New user")
+            user_selection_menu()
             user_choice = input("")
             clearterminal.clear_terminal()
 
@@ -56,7 +53,7 @@ if __name__ == "__main__":
                     break
                 else:
                     print("No matching user found. Please try again.")
-                    input("Press Enter to continue...")
+                    enter_continue()
                     clearterminal.clear_terminal()
 
             if search_input == "return":
@@ -68,7 +65,7 @@ if __name__ == "__main__":
 
                 if not user_pin.isdigit():
                     print("Error: Invalid input. Please enter only digits for the pin.")
-                    input("Press Enter to continue...")
+                    enter_continue()
                     clearterminal.clear_terminal()
                     continue
 
@@ -77,7 +74,7 @@ if __name__ == "__main__":
                     break
                 else:
                     print("Invalid pin, please try again.")
-                    input("Press Enter to continue...")
+                    enter_continue()
                     clearterminal.clear_terminal()
         elif user_choice == "2":
             while True:
@@ -101,9 +98,8 @@ if __name__ == "__main__":
                     clearterminal.clear_terminal()
 
                     if not pin.isdigit():
-                        print(
-                            "Error: Invalid input. Please enter only digits for the pin.")
-                        input("Press Enter to continue...")
+                        print("Error: Invalid input. Please enter only digits for the pin.")
+                        enter_continue()
                         clearterminal.clear_terminal()
                         continue
 
@@ -134,10 +130,8 @@ if __name__ == "__main__":
                     "balance": balance
                 }
 
-                # Add the new user data to the list
+                # Add the new user data to the list, and save to the json file.
                 user_data.append(user_data_entry)
-
-                # Save the updated user data to the JSON file
                 with open("user_data.json", "w") as file:
                     json.dump(user_data, file, indent=4)
                 break
@@ -156,21 +150,21 @@ if __name__ == "__main__":
                     option = int(option)
                     if option == 1:
                         deposit(current_user)
-                        input("Press Enter to continue...")
+                        enter_continue()
                     elif option == 2:
                         while True:
                             withdraw(current_user)
-                            input("Press Enter to continue...")
+                            enter_continue()
                             break
                     elif option == 3:
                         while True:
                             check_balance(current_user)
-                            input("Press Enter to continue...")
+                            enter_continue()
                             break
                     elif option == 4:
                         while True:
                             view_transactions(current_user)
-                            input("Press Enter to continue...")
+                            enter_continue()
                             break
                     elif option == 5:
                         principal = float(
@@ -182,7 +176,7 @@ if __name__ == "__main__":
                             input("Enter the time period (in years): "))
                         calculate_interest(
                             principal, interest_rate, time_period)
-                        input("Press Enter to continue...")
+                        enter_continue()
                     elif option == 6:
                         close_account(current_user)
                     elif option == 7:
@@ -191,7 +185,7 @@ if __name__ == "__main__":
                         raise ValueError()
                 except ValueError:
                     print("Invalid input, please try again")
-                    input("Press Enter to continue...")
+                    enter_continue()
                     clearterminal.clear_terminal()
                     continue
 

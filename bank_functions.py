@@ -14,6 +14,17 @@ def print_menu():
     print("(6) Close Account")
     print("(7) Exit")
 
+#user type menu
+def user_selection_menu():
+    print("Are you a:")
+    print("(1) Existing user")
+    print("(2) New user")
+
+
+#enter to continue
+def enter_continue():
+    input("Press Enter to continue...")
+
 
 ##saves the users transactions to the users account
 def save_transactions(cardholder):
