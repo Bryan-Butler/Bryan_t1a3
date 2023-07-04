@@ -2,7 +2,10 @@ import json
 import random
 from cardinfo import card_info
 from clear_terminal import clearterminal
-from simple_menus import (print_menu, user_selection_menu,enter_continue,return_user_select,invalid_choice,security_pin,invalid_pin_input,invalid_input,no_matching_user,pin_not_match,enter_details)
+from simple_menus import (print_menu, user_selection_menu,enter_continue,
+                          return_user_select,invalid_choice,security_pin,
+                          invalid_pin_input,invalid_input,no_matching_user,
+                          pin_not_match,enter_details)
 from bank_functions import (deposit, withdraw, check_balance,view_transactions, calculate_interest, close_account)
 
 
