@@ -1,5 +1,6 @@
 import json
 import random
+import os
 from cardinfo import card_info
 from clear_terminal import clearterminal
 from simple_menus import (print_menu, user_selection_menu,enter_continue,
@@ -8,6 +9,11 @@ from simple_menus import (print_menu, user_selection_menu,enter_continue,
                           pin_not_match,enter_details)
 from bank_functions import (deposit, withdraw, check_balance,view_transactions, calculate_interest, close_account)
 
+
+# Create the user_data.json file if it doesn't exist
+if not os.path.isfile("user_data.json"):
+    with open("user_data.json", "w") as file:
+        file.write("[]")
 
 if __name__ == "__main__":
     clearterminal.clear_terminal()
