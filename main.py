@@ -1,7 +1,8 @@
 import json
+import random
 from cardinfo import card_info
 from clear_terminal import clearterminal
-from bank_functions import (print_menu, deposit, withdraw, check_balance, view_transactions,calculate_interest, close_account)
+from bank_functions import (print_menu, deposit, withdraw, check_balance, view_transactions, calculate_interest, close_account)
 
 if __name__ == "__main__":
     clearterminal.clear_terminal()
@@ -12,19 +13,21 @@ if __name__ == "__main__":
         print("(1) Existing user")
         print("(2) New user")
         user_choice = input("")
+        clearterminal.clear_terminal()
 
         while user_choice not in ["1", "2"]:
-            clearterminal.clear_terminal()
             print("Invalid choice. Please select again.")
             print("Are you a:")
             print("(1) Existing user")
             print("(2) New user")
             user_choice = input("")
+            clearterminal.clear_terminal()
 
         if user_choice == "1":
             while True:
-                clearterminal.clear_terminal()
                 search_input = input("Please enter your card number or name, or type 'return' to go back:\n").lower()
+                clearterminal.clear_terminal()
+
                 if search_input == "return":
                     print("Returning to user selection.")
                     break
@@ -43,38 +46,73 @@ if __name__ == "__main__":
                                             current_user_data["first_name"],
                                             current_user_data["last_name"],
                                             current_user_data["balance"])
-                    
+
                     # Load transaction history from JSON file
                     if "transactions" in current_user_data:
                         current_user.transactions = current_user_data["transactions"]
-                    
+
                     break
                 else:
                     print("No matching user found. Please try again.")
+                    input("Press Enter to continue...")
+                    clearterminal.clear_terminal()
 
             if search_input == "return":
                 continue
 
             while True:
+                user_pin = input("Please enter your security pin:\n").strip()
                 clearterminal.clear_terminal()
-                user_pin = int(input("Please enter your security pin:\n").strip())
+
+                if not user_pin.isdigit():
+                    print("Error: Invalid input. Please enter only digits for the pin.")
+                    input("Press Enter to continue...")
+                    clearterminal.clear_terminal()
+                    continue
+
+                user_pin = int(user_pin)
                 if current_user.get_cardpin() == user_pin:
                     break
                 else:
                     print("Invalid pin, please try again.")
-
+                    input("Press Enter to continue...")
+                    clearterminal.clear_terminal()
         elif user_choice == "2":
             while True:
-                clearterminal.clear_terminal()
-                card_number = input("Please enter your card number, or type 'return' to go back:\n").lower()
+                while True:
+                    card_number = ""
+                    for _ in range(16):
+                        digit = str(random.randint(0, 9))
+                        card_number += digit
+
+                    if len(card_number) == 16:
+                        break
+
+                print("Generated card number:", card_number)
+
                 if card_number == "return":
                     print("Returning to user selection.")
                     break
 
-                pin = int(input("Please enter your security pin:\n"))
+                while True:
+                    pin = input("Please enter your security pin:\n")
+                    clearterminal.clear_terminal()
+
+                    if not pin.isdigit():
+                        print("Error: Invalid input. Please enter only digits for the pin.")
+                        input("Press Enter to continue...")
+                        clearterminal.clear_terminal()
+                        continue
+
+                    pin = int(pin)
+                    break
+
                 first_name = input("Please enter your first name:\n").lower()
+                clearterminal.clear_terminal()
                 last_name = input("Please enter your last name:\n").lower()
+                clearterminal.clear_terminal()
                 balance = float(input("Please enter your initial balance:\n"))
+                clearterminal.clear_terminal()
 
                 current_user = card_info(card_number, pin, first_name, last_name, balance)
                 print("New user created successfully.")
@@ -102,57 +140,51 @@ if __name__ == "__main__":
 
         clearterminal.clear_terminal()
         print("Welcome", current_user.get_firstname())
-        
 
         while True:
             for i in range(1, 8):
                 clearterminal.clear_terminal()
                 print_menu()
                 option = input()
+                clearterminal.clear_terminal()
+
                 try:
                     option = int(option)
                     if option == 1:
-                        clearterminal.clear_terminal()
                         deposit(current_user)
                         input("Press Enter to continue...")
                     elif option == 2:
                         while True:
-                            clearterminal.clear_terminal()
                             withdraw(current_user)
                             input("Press Enter to continue...")
                             break
                     elif option == 3:
                         while True:
-                            clearterminal.clear_terminal()
                             check_balance(current_user)
                             input("Press Enter to continue...")
                             break
                     elif option == 4:
                         while True:
-                            clearterminal.clear_terminal()
                             view_transactions(current_user)
                             input("Press Enter to continue...")
                             break
                     elif option == 5:
-                        clearterminal.clear_terminal()
-                        close_account(current_user)
-                    elif option == 6:
-                        clearterminal.clear_terminal()
                         principal = float(input("Enter the principal amount: "))
                         interest_rate_percent = float(input("Enter the interest rate (in percentage): "))
-                        interest_rate = interest_rate_percent 
+                        interest_rate = interest_rate_percent
                         time_period = int(input("Enter the time period (in years): "))
                         calculate_interest(principal, interest_rate, time_period)
                         input("Press Enter to continue...")
+                    elif option == 6:
+                        close_account(current_user)
                     elif option == 7:
-                        clearterminal.clear_terminal()
                         break
                     else:
                         raise ValueError()
                 except ValueError:
-                    clearterminal.clear_terminal()
                     print("Invalid input, please try again")
                     input("Press Enter to continue...")
+                    clearterminal.clear_terminal()
                     continue
 
             if option == 7:

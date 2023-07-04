@@ -10,8 +10,8 @@ def print_menu():
     print("(2) Withdraw")
     print("(3) Show Balance")
     print("(4) View Transaction History")
-    print("(5) Close Account")
-    print("(6) Calculate interest")
+    print("(5) Calculate interest")
+    print("(6) Close Account")
     print("(7) Exit")
 
 
