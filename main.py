@@ -16,79 +16,61 @@ if __name__ == "__main__":
         clearterminal.clear_terminal()
 
         while user_choice not in ["1", "2"]:
-            invalid_choice
+            invalid_choice()
             user_selection_menu()
             user_choice = input("")
             clearterminal.clear_terminal()
 
         if user_choice == "1":
             while True:
-                search_input = enter_details
+                search_input = enter_details()
                 clearterminal.clear_terminal()
 
                 if search_input == "return":
-                    return_user_select
+                    return_user_select()
                     break
 
                 with open("user_data.json", "r") as file:
                     user_data = json.load(file)
                     user_matches = [holder for holder in user_data if
                                     holder["card_number"] == search_input or
-                                    holder["first_name"].lower() == search_input or
-                                    holder["last_name"].lower() == search_input]
+                                    holder["first_name"].lower() == search_input.lower() or
+                                    holder["last_name"].lower() == search_input.lower()]
 
                 if len(user_matches) > 0:
                     current_user_data = user_matches[0]
                     current_user = card_info(current_user_data["card_number"],
-                                             current_user_data["pin"],
-                                             current_user_data["first_name"],
-                                             current_user_data["last_name"],
-                                             current_user_data["balance"])
+                                            current_user_data["pin"],
+                                            current_user_data["first_name"],
+                                            current_user_data["last_name"],
+                                            current_user_data["balance"])
+
+                    user_pin = security_pin()
+                    clearterminal.clear_terminal()
+
+                    if not user_pin.isdigit() or current_user.get_cardpin() != int(user_pin):
+                        if not user_pin.isdigit():
+                            invalid_pin_input()
+                        else:
+                            pin_not_match()
+
+                        enter_continue()
+                        clearterminal.clear_terminal()
+                        continue
 
                     # Load transaction history from JSON file
                     if "transactions" in current_user_data:
                         current_user.transactions = current_user_data["transactions"]
 
                     break
+
                 else:
-                    no_matching_user
+                    no_matching_user()
                     enter_continue()
                     clearterminal.clear_terminal()
 
             if search_input == "return":
                 continue
-
-            while True:
-                user_pin = security_pin
-                clearterminal.clear_terminal()
-
-                while True:
-                    user_pin = input("Please enter your security pin:\n")
-                    clearterminal.clear_terminal()
-
-                    if not user_pin.isdigit():
-                        invalid_pin_input()
-                        enter_continue()
-                        clearterminal.clear_terminal()
-                        continue
-
-                    user_pin = int(user_pin)
-                    if current_user.get_cardpin() == user_pin:
-                        break
-                    else:
-                        pin_not_match()
-                        enter_continue()
-                        clearterminal.clear_terminal()
-
-
-
-                user_pin = int(user_pin)
-                if current_user.get_cardpin() == user_pin:
-                    break
-                else:
-                    pin_not_match
-                    enter_continue()
-                    clearterminal.clear_terminal()
         elif user_choice == "2":
             while True:
                 while True:
@@ -107,11 +89,11 @@ if __name__ == "__main__":
                     break
 
                 while True:
-                    pin = security_pin
+                    pin = security_pin()
                     clearterminal.clear_terminal()
 
                     if not pin.isdigit():
-                        invalid_pin_input
+                        invalid_pin_input()
                         enter_continue()
                         clearterminal.clear_terminal()
                         continue
@@ -192,6 +174,8 @@ if __name__ == "__main__":
                         enter_continue()
                     elif option == 6:
                         close_account(current_user)
+                        current_user = card_info("", "", "", "", "")
+                        break
                     elif option == 7:
                         break
                     else:
@@ -203,8 +187,9 @@ if __name__ == "__main__":
                     continue
 
             if option == 7:
+                print("Thank you for using our services!")
+                print("Have a great day!")
+                enter_continue()
                 break
-
-            print("Thank you for using our services!")
-            print("Have a great day!")
-            break
+            
+        clearterminal.clear_terminal()

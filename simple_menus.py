@@ -26,7 +26,9 @@ def return_user_select():
 
 #enter initial details
 def enter_details():
-    input("Please enter your card number or your name, or type 'return' to go back:\n").lower()
+    print("Please enter your card number, first name or type 'return' to go back:")
+    user_input = input("")
+    return user_input
     
 #no matching user
 def no_matching_user():
@@ -46,7 +48,7 @@ def invalid_choice():
 
 #ask for security pin
 def security_pin():
-    input("Please enter your security pin:\n").strip()
+    return input("Please enter your security pin:\n").strip()
 
 #input had letters/characters and not just numbers
 def invalid_pin_input():
