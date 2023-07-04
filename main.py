@@ -2,7 +2,8 @@ import json
 import random
 from cardinfo import card_info
 from clear_terminal import clearterminal
-from bank_functions import (print_menu, deposit, withdraw, check_balance, view_transactions, calculate_interest, close_account)
+from bank_functions import (print_menu, deposit, withdraw, check_balance,
+                            view_transactions, calculate_interest, close_account)
 
 if __name__ == "__main__":
     clearterminal.clear_terminal()
@@ -25,7 +26,8 @@ if __name__ == "__main__":
 
         if user_choice == "1":
             while True:
-                search_input = input("Please enter your card number or name, or type 'return' to go back:\n").lower()
+                search_input = input(
+                    "Please enter your card number or your name, or type 'return' to go back:\n").lower()
                 clearterminal.clear_terminal()
 
                 if search_input == "return":
@@ -42,10 +44,10 @@ if __name__ == "__main__":
                 if len(user_matches) > 0:
                     current_user_data = user_matches[0]
                     current_user = card_info(current_user_data["card_number"],
-                                            current_user_data["pin"],
-                                            current_user_data["first_name"],
-                                            current_user_data["last_name"],
-                                            current_user_data["balance"])
+                                             current_user_data["pin"],
+                                             current_user_data["first_name"],
+                                             current_user_data["last_name"],
+                                             current_user_data["balance"])
 
                     # Load transaction history from JSON file
                     if "transactions" in current_user_data:
@@ -99,7 +101,8 @@ if __name__ == "__main__":
                     clearterminal.clear_terminal()
 
                     if not pin.isdigit():
-                        print("Error: Invalid input. Please enter only digits for the pin.")
+                        print(
+                            "Error: Invalid input. Please enter only digits for the pin.")
                         input("Press Enter to continue...")
                         clearterminal.clear_terminal()
                         continue
@@ -114,7 +117,8 @@ if __name__ == "__main__":
                 balance = float(input("Please enter your initial balance:\n"))
                 clearterminal.clear_terminal()
 
-                current_user = card_info(card_number, pin, first_name, last_name, balance)
+                current_user = card_info(
+                    card_number, pin, first_name, last_name, balance)
                 print("New user created successfully.")
 
                 # Load existing user data from the JSON file
@@ -169,11 +173,15 @@ if __name__ == "__main__":
                             input("Press Enter to continue...")
                             break
                     elif option == 5:
-                        principal = float(input("Enter the principal amount: "))
-                        interest_rate_percent = float(input("Enter the interest rate (in percentage): "))
+                        principal = float(
+                            input("Enter the principal amount: "))
+                        interest_rate_percent = float(
+                            input("Enter the interest rate (in percentage): "))
                         interest_rate = interest_rate_percent
-                        time_period = int(input("Enter the time period (in years): "))
-                        calculate_interest(principal, interest_rate, time_period)
+                        time_period = int(
+                            input("Enter the time period (in years): "))
+                        calculate_interest(
+                            principal, interest_rate, time_period)
                         input("Press Enter to continue...")
                     elif option == 6:
                         close_account(current_user)
