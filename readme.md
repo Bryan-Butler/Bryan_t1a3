@@ -25,13 +25,13 @@ I have quite a few features, some simpler than others but all interact with the 
 ### Login validation
 When first selecting existing user, you will be presented with two options, the first of which being existing user, once you select this you will be asked to provide your card number or your name, and it will match it against the data saved in the JSON file and subsequently check the pin (that must be digits) against the data saved their also.
 
-![login validating](/readme_files/login%20validating.gif)
+![login validating](/docs/login%20validating.gif)
 
 
 
 ### Transaction history
 What you can see here is passed transactions that have been stored into the JSON file, even from seperate instances of the program running showing, with both the type of transaction and how much.
-![Transaction history](/readme_files/transaction%20history.gif)
+![Transaction history](/docs/transaction%20history.gif)
 
 
 ### saving data to a JSON file

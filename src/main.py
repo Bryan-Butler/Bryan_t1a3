@@ -11,10 +11,11 @@ from bank_functions import (deposit, withdraw, check_balance,view_transactions, 
 
 
 # Create the user_data.json file if it doesn't exist
-if not os.path.isfile("user_data.json"):
-    with open("user_data.json", "w") as file:
+file_path = "src/user_data.json"
+if not os.path.isfile(file_path):
+    with open(file_path, "w") as file:
         file.write("[]")
-
+        
 if __name__ == "__main__":
     clearterminal.clear_terminal()
     current_user = card_info("", "", "", "", "")
@@ -39,7 +40,7 @@ if __name__ == "__main__":
                     return_user_select()
                     break
 
-                with open("user_data.json", "r") as file:
+                with open("src/user_data.json", "r") as file:
                     user_data = json.load(file)
                     user_matches = [holder for holder in user_data if
                                     holder["card_number"] == search_input or
