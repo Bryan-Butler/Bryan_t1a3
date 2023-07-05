@@ -1,6 +1,5 @@
 import json
 import os.path
-from cardinfo import card_info
 from clear_terminal import clearterminal
 
 

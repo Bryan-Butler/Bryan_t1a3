@@ -44,4 +44,4 @@ class card_info:
         for transaction in cardholder.transactions:
             print("Type:", transaction["type"])
             print("Amount:", "{:.2f}".format(transaction["amount"]))
-            print()  # Print a blank line between transactions
+            print() 
