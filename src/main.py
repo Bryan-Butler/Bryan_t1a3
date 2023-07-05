@@ -147,7 +147,7 @@ if __name__ == "__main__":
         while True:
             for i in range(1, 8):
                 clearterminal.clear_terminal()
-                print_menu()
+                print_menu(current_user)
                 option = input()
                 clearterminal.clear_terminal()
 

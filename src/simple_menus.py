@@ -1,5 +1,6 @@
 #logged in menu
-def print_menu():
+def print_menu(current_user):
+    print("Welcome", current_user.get_firstname())
     print("Please choose an option from the following")
     print("(1) Deposit")
     print("(2) Withdraw")
