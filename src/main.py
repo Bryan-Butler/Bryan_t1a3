@@ -123,7 +123,7 @@ if __name__ == "__main__":
                 print("New user created successfully.")
 
                 # Load existing user data from the JSON file
-                with open("user_data.json", "r") as file:
+                with open("src/user_data.json", "r") as file:
                     user_data = json.load(file)
 
                 # Create a new user data dictionary
@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
                 # Add the new user data to the list, and save to the json file.
                 user_data.append(user_data_entry)
-                with open("user_data.json", "w") as file:
+                with open("src/user_data.json", "w") as file:
                     json.dump(user_data, file, indent=4)
                 break
 
