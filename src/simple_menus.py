@@ -15,6 +15,7 @@ def user_selection_menu():
     print("Are you a:")
     print("(1) Existing user")
     print("(2) New user")
+    print("(3) Exit")
 
 
 #enter to continue

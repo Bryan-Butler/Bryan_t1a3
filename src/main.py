@@ -11,7 +11,7 @@ from bank_functions import (deposit, withdraw, check_balance,view_transactions, 
 
 
 # Create the user_data.json file if it doesn't exist
-file_path = "src/user_data.json"
+file_path = "./user_data.json"
 if not os.path.isfile(file_path):
     with open(file_path, "w") as file:
         file.write("[]")
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         user_choice = input("")
         clearterminal.clear_terminal()
 
-        while user_choice not in ["1", "2"]:
+        while user_choice not in ["1", "2", "3"]:
             invalid_choice()
             user_selection_menu()
             user_choice = input("")
@@ -40,7 +40,7 @@ if __name__ == "__main__":
                     return_user_select()
                     break
 
-                with open("src/user_data.json", "r") as file:
+                with open("user_data.json", "r") as file:
                     user_data = json.load(file)
                     user_matches = [holder for holder in user_data if
                                     holder["card_number"] == search_input or
@@ -123,7 +123,7 @@ if __name__ == "__main__":
                 print("New user created successfully.")
 
                 # Load existing user data from the JSON file
-                with open("src/user_data.json", "r") as file:
+                with open("user_data.json", "r") as file:
                     user_data = json.load(file)
 
                 # Create a new user data dictionary
@@ -137,9 +137,15 @@ if __name__ == "__main__":
 
                 # Add the new user data to the list, and save to the json file.
                 user_data.append(user_data_entry)
-                with open("src/user_data.json", "w") as file:
+                with open("user_data.json", "w") as file:
                     json.dump(user_data, file, indent=4)
                 break
+            
+        elif user_choice == "3":
+            print("Thank you for using our services!")
+            print("Have a great day!")
+            enter_continue()
+            break
 
         clearterminal.clear_terminal()
         print("Welcome", current_user.get_firstname())
