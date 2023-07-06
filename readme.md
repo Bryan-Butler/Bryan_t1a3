@@ -1,8 +1,8 @@
 # Bryan Butler: Banking/ATM app
 
 
-###Presentation video:
-###Repository:
+### Presentation video:
+### Repository:
 
 
 <br>
