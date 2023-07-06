@@ -196,7 +196,7 @@ if __name__ == "__main__":
                     clearterminal.clear_terminal()
                     continue
 
-            if option == 7:
+            if option == 6 or 7:
                 print("Thank you for using our services!")
                 print("Have a great day!")
                 enter_continue()

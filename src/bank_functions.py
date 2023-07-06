@@ -97,7 +97,7 @@ def close_account(cardholder):
     if choice == "1":
         entered_pin = int(input("Please enter your security pin to confirm the closure:\n"))
         if cardholder.get_cardpin() == entered_pin:
-            with open("user_data.json", "r+") as file:
+            with open("src/user_data.json", "r+") as file:
                 user_data = json.load(file)
                 user_data = [user for user in user_data if user["card_number"] != cardholder.get_cardnumber()]
                 file.seek(0)
@@ -110,7 +110,8 @@ def close_account(cardholder):
             print("Invalid security pin. Account closure canceled.")
     else:
         print("Account closure canceled.")
-        clearterminal.clear_terminal()  
+        clearterminal.clear_terminal()
+        return 
 
 
 # json data loading, user creation and updating
