@@ -1,8 +1,8 @@
 # Bryan Butler: Banking/ATM app
 
 
-### Presentation video:
-### Repository:
+### Presentation video: [Youtube]()
+### Repository: [Github](https://github.com/Pepperz/Bryan_t1a3)
 
 
 <br>
@@ -56,3 +56,114 @@ What you can see here is passed transactions that have been stored into the JSON
 ### Close account
 
 ![Close account](./docs/Close%20account.gif)
+
+<br>
+
+## Help Documentation
+
+To run this program you must first ensure you have the following installed: 
+<b>python 3.10 or newer:</b> [python.org](https://www.python.org/downloads/)
+<b> bash:</b> [Windows](https://hackernoon.com/how-to-install-bash-on-windows-10-lqb73yj3) or [Mac](https://scriptingosx.com/2019/02/install-bash-5-on-macos/)
+<b> pip:</b>[pypi.org/pip](https://pypi.org/project/pip/)
+
+<br>
+
+## System Requirements
+
+This application will run on any modern windows or mac machine. No intense hardware requirements.
+</br>
+
+## How to install and run
+
+1. Down the "sec" folder in its entirety from the Github repository.
+
+2. Open a terminal and navigate to the "src" folder in the terminal, this will be wherever you saved the download to i.e "user/download".
+
+3. Once here, type ls -la and we will see all the files.
+
+    ![ls -la](/docs/ls%20-la%20example.png)
+
+4. Type into the terminal ./script.sh to run the app. <b> If you get a permissions error type chmod +x ./script.sh and then repeat step 4. </b>
+
+5. Repeat these steps to run run_test.sh also.
+
+<br>
+
+### How to use the app
+
+#### Start screen
+The start screen will ask you to pick from options 1-3
+![start screen](/docs/Start%20screen.png)
+
+- Inputting "1" means you are an existing user and ask for your card number or name to match against the database.
+- Inputting "2" will take you to account creation and will generate you a 16 digit card number then ask you to set a pin and your name.
+- inputting "3" here exits the app.
+
+#### Main menu
+
+The main menu has 7 options.
+![Main menu](/docs/Main%20menu.png)
+
+- Inputting "1" will take you to a deposit menu, asking you how much youd like to deposit.
+- Inputting "2", similarly will take you to a withdrawal menu, asking you much youd like to withdrawal.
+- Inputting "3" will show your current balance.
+- Inputting "4" will let you see your past transactions associated with your account.
+- Inputting "5" will take you to an intereste calculator, asking for term length, interest rate etc similar to what we see on bank websites today.
+- Inputting "6" will begin the process of closing your account and deleting it from the database, having you confirm your pin before doing so.
+- Inputting "7" will take you back to the start screen.
+
+## Implementation plan
+
+#### Initial steps
+
+Initial steps were to create a board using [Trello](trello.com) to help keep on track and prioritise what steps to do next, and possible add things as development went along.
+
+
+| Task     | Deadline | Status | 
+| -------------- | ------- |------- |
+| Create git Repo  | 2/7/23  | Done | 
+| Connect git | 2/7/23 | Done |
+| Create Trello Board | 2/27/23 | Done |
+| Write pseudocode | 2/7/23 | Done |
+| Create initial python files | 2/7/23 | Done |
+
+![Trello](/docs/trello%20day%201.png)
+
+<br>
+
+#### json data storage
+| Task     | Deadline | Status | 
+| -------------- | ------- |------- |
+| Create json file  | 3/7/23  | Done | 
+| Create and impliment function to load/read json on app start| 3/7/23 | Done |
+| Create and impliment function to save/update data to json | 3/27/23 | Done |
+| Create and impliment function to retrieve data from json | 3/7/23 | Done |
+| Test json functions| 3/7/23 | Done |
+
+#### Existing user
+
+| Task     | Deadline | Status | 
+| -------------- | ------- |-------|
+| Create promopt for info from user  | 3/7/23  | Done | 
+| Create functions to match info to json info| 3/7/23 | Done |
+| Create logged in menu | 3/27/23 | Done |
+| Create function to load user's transaction history | 3/7/23 | Done |
+| Test | 3/7/23 | Done |
+
+#### Close account
+
+| Task     | Deadline | Status | 
+| -------------- | ------- |------- |
+| Create interface for closing menu | 5/7/23  | Done | 
+| Validate they are the user with pin match | 5/7/23 | Done |
+| Create function to delete users info | 5/27/23 | Done |
+| test | 5/7/23 | Done |
+
+#### Create executeables
+
+| Task     | Deadline | Status | 
+| -------------- | ------- |------- |
+| Create shell script files| 6/7/23  | Done | 
+| Identify dependencies/requirements| 6/27/23 | Done |
+| Write launch script | 6/7/23 | Done |
+| Test Script in dev environment| 6/27/23 | Done |
