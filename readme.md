@@ -93,7 +93,9 @@ This application will run on any modern windows or mac machine. No intense hardw
 
 #### Start screen
 The start screen will ask you to pick from options 1-3
+
 ![start screen](/docs/Start%20screen.png)
+
 
 - Inputting "1" means you are an existing user and ask for your card number or name to match against the database.
 - Inputting "2" will take you to account creation and will generate you a 16 digit card number then ask you to set a pin and your name.
