@@ -1,15 +1,16 @@
 # Bryan Butler: Banking/ATM app
 
 
-### Presentation video: [Youtube]()
-### Repository: [Github](https://github.com/Pepperz/Bryan_t1a3)
+
+###  [Github](https://github.com/Pepperz/Bryan_t1a3)
+###  [Youtube]()
 
 
 <br>
 
 
-## Styling convention
-Throughout the process of making this app, i tried to adhere to the convention's outlined in [PEP 8 - style guide for python code](https://peps.python.org/pep-0008/) as best as possible. utilising heavy use of <b> Snake_case </b> Which is a styling where the naming of things utilises an _ where their would be a space between the words.
+## Coding conventions
+Throughout the process of making this app, i tried to adhere to the convention's outlined in pep as best as possible. utilising heavy use of <b> Snake_case </b> Which is a styling where the naming of things utilises an _ where their would be a space between the words.
 
 The code is organized into logical sections and functions to improve readability and maintainability. The use of functions helps encapsulate specific tasks or operations.
 
@@ -18,6 +19,37 @@ Commenting used fairly thoroughly throughout to indicate what code is doing what
 
 <br>
 
+## Help Documentation
+
+To run this program you must first ensure you have the following installed: 
+<b>python 3.10.6 or newer:</b> [python.org](https://www.python.org/downloads/)
+
+<b> bash:</b> [Windows](https://hackernoon.com/how-to-install-bash-on-windows-10-lqb73yj3) or [Mac](https://scriptingosx.com/2019/02/install-bash-5-on-macos/)
+
+<b> pip:</b>[pypi.org/pip](https://pypi.org/project/pip/)
+
+<br>
+
+## System Requirements
+
+This application will run on any modern windows or mac machine. No intense hardware requirements.
+</br>
+
+## How to install and run
+
+1. Down the "sec" folder in its entirety from the Github repository.
+
+2. Open a terminal and navigate to the "src" folder in the terminal, this will be wherever you saved the download to i.e "user/download".
+
+3. Once here, type ls -la and we will see all the files.
+
+![ls -la](/docs/ls%20-la%20example.png)
+
+4. Type into the terminal ./script.sh to run the app. <b> If you get a permissions error type chmod +x ./script.sh and then repeat step 4. </b>
+
+5. Repeat these steps to run run_test.sh also.
+
+<br>
 
 ## Features
 
@@ -59,35 +91,9 @@ What you can see here is passed transactions that have been stored into the JSON
 
 <br>
 
-## Help Documentation
 
-To run this program you must first ensure you have the following installed: 
-<b>python 3.10.6 or newer:</b> [python.org](https://www.python.org/downloads/)
-<b> bash:</b> [Windows](https://hackernoon.com/how-to-install-bash-on-windows-10-lqb73yj3) or [Mac](https://scriptingosx.com/2019/02/install-bash-5-on-macos/)
-<b> pip:</b>[pypi.org/pip](https://pypi.org/project/pip/)
 
-<br>
 
-## System Requirements
-
-This application will run on any modern windows or mac machine. No intense hardware requirements.
-</br>
-
-## How to install and run
-
-1. Down the "sec" folder in its entirety from the Github repository.
-
-2. Open a terminal and navigate to the "src" folder in the terminal, this will be wherever you saved the download to i.e "user/download".
-
-3. Once here, type ls -la and we will see all the files.
-
-![ls -la](/docs/ls%20-la%20example.png)
-
-4. Type into the terminal ./script.sh to run the app. <b> If you get a permissions error type chmod +x ./script.sh and then repeat step 4. </b>
-
-5. Repeat these steps to run run_test.sh also.
-
-<br>
 
 ### How to use the app
 
@@ -116,12 +122,13 @@ The main menu has 7 options.
 - Inputting "6" will begin the process of closing your account and deleting it from the database, having you confirm your pin before doing so.
 - Inputting "7" will take you back to the start screen.
 
-## Implementation plan
+## Development 
 
-#### Initial steps
+#### First steps
 
 Initial steps were to create a board using [Trello](trello.com) to help keep on track and prioritise what steps to do next, and possible add things as development went along.
 
+![Trello](/docs/trello%20day%201.png)
 
 | Task     | Deadline | Status | 
 | -------------- | ------- |------- |
@@ -131,11 +138,9 @@ Initial steps were to create a board using [Trello](trello.com) to help keep on 
 | Write pseudocode | 2/7/23 | Done |
 | Create initial python files | 2/7/23 | Done |
 
-![Trello](/docs/trello%20day%201.png)
-
 <br>
 
-#### json data storage
+#### JSON data storage
 | Task     | Deadline | Status | 
 | -------------- | ------- |------- |
 | Create json file  | 3/7/23  | Done | 
@@ -144,7 +149,7 @@ Initial steps were to create a board using [Trello](trello.com) to help keep on 
 | Create and impliment function to retrieve data from json | 3/7/23 | Done |
 | Test json functions| 3/7/23 | Done |
 
-#### Existing user
+#### Matching existing user
 
 | Task     | Deadline | Status | 
 | -------------- | ------- |-------|
@@ -154,7 +159,7 @@ Initial steps were to create a board using [Trello](trello.com) to help keep on 
 | Create function to load user's transaction history | 3/7/23 | Done |
 | Test | 3/7/23 | Done |
 
-#### Close account
+#### Deleteing/Closing account
 
 | Task     | Deadline | Status | 
 | -------------- | ------- |------- |
