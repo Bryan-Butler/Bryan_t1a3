@@ -169,6 +169,7 @@ Initial steps were to create a board using [Trello](trello.com) to help keep on 
 
 #### Create executeables
 
+![trello](docs/trello%203.png)
 | Task     | Deadline | Status | 
 | -------------- | ------- |------- |
 | Create shell script files| 6/7/23  | Done | 
