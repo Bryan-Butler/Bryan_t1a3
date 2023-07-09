@@ -62,7 +62,7 @@ What you can see here is passed transactions that have been stored into the JSON
 ## Help Documentation
 
 To run this program you must first ensure you have the following installed: 
-<b>python 3.10 or newer:</b> [python.org](https://www.python.org/downloads/)
+<b>python 3.10.6 or newer:</b> [python.org](https://www.python.org/downloads/)
 <b> bash:</b> [Windows](https://hackernoon.com/how-to-install-bash-on-windows-10-lqb73yj3) or [Mac](https://scriptingosx.com/2019/02/install-bash-5-on-macos/)
 <b> pip:</b>[pypi.org/pip](https://pypi.org/project/pip/)
 
@@ -81,7 +81,7 @@ This application will run on any modern windows or mac machine. No intense hardw
 
 3. Once here, type ls -la and we will see all the files.
 
-    ![ls -la](/docs/ls%20-la%20example.png)
+![ls -la](/docs/ls%20-la%20example.png)
 
 4. Type into the terminal ./script.sh to run the app. <b> If you get a permissions error type chmod +x ./script.sh and then repeat step 4. </b>
 
@@ -104,7 +104,9 @@ The start screen will ask you to pick from options 1-3
 #### Main menu
 
 The main menu has 7 options.
+
 ![Main menu](/docs/Main%20menu.png)
+
 
 - Inputting "1" will take you to a deposit menu, asking you how much youd like to deposit.
 - Inputting "2", similarly will take you to a withdrawal menu, asking you much youd like to withdrawal.
