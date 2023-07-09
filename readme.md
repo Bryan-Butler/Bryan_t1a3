@@ -3,7 +3,7 @@
 
 
 ###  [Github](https://github.com/Pepperz/Bryan_t1a3)
-###  [Youtube]()
+###  [Youtube](https://youtu.be/CvidepagsE0)
 
 
 <br>
@@ -21,7 +21,8 @@ Commenting used fairly thoroughly throughout to indicate what code is doing what
 
 ## Help Documentation
 
-To run this program you must first ensure you have the following installed: 
+This program was developed in python 3.10.6, please ensure you have the following installed:
+
 <b>python 3.10.6 or newer:</b> [python.org](https://www.python.org/downloads/)
 
 <b> bash:</b> [Windows](https://hackernoon.com/how-to-install-bash-on-windows-10-lqb73yj3) or [Mac](https://scriptingosx.com/2019/02/install-bash-5-on-macos/)
@@ -33,6 +34,7 @@ To run this program you must first ensure you have the following installed:
 ## System Requirements
 
 This application will run on any modern windows or mac machine. No intense hardware requirements.
+
 </br>
 
 ## How to install and run
@@ -51,7 +53,7 @@ This application will run on any modern windows or mac machine. No intense hardw
 
 <br>
 
-## Features
+## List of Features
 
 ### Login validation
 When first selecting existing user, you will be presented with two options, the first of which being existing user, once you select this you will be asked to provide your card number or your name, and it will match it against the data saved in the JSON file and subsequently check the pin (that must be digits) against the data saved their also.
@@ -92,9 +94,6 @@ What you can see here is passed transactions that have been stored into the JSON
 <br>
 
 
-
-
-
 ### How to use the app
 
 #### Start screen
@@ -128,7 +127,7 @@ The main menu has 7 options.
 
 Initial steps were to create a board using [Trello](trello.com) to help keep on track and prioritise what steps to do next, and possible add things as development went along.
 
-![Trello](/docs/trello%20day%201.png)
+![Trello](/docs/trello%201.png)
 
 | Task     | Deadline | Status | 
 | -------------- | ------- |------- |
@@ -150,7 +149,7 @@ Initial steps were to create a board using [Trello](trello.com) to help keep on 
 | Test json functions| 3/7/23 | Done |
 
 #### Matching existing user
-
+![trello](docs/trello%202.png)
 | Task     | Deadline | Status | 
 | -------------- | ------- |-------|
 | Create promopt for info from user  | 3/7/23  | Done | 
